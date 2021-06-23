@@ -15,6 +15,7 @@ function App() {
   return (
     <Router>
       <div>
+        <div className="header-div">
         <h2>The Worst Page in the History of Pages</h2>
         <p>
           <Link to="/">
@@ -25,7 +26,8 @@ function App() {
           <Link to="/create">
             Add a Character
           </Link>
-        </p>
+          </p></div>
+        
         <Switch>
           <Route path="/characters/:id" exact render={(routerProps) => <DetailPage {...routerProps} />}
           />

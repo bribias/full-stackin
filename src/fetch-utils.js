@@ -15,13 +15,13 @@ export async function getOneCharacter(id) {
 }
 
 export async function updateCharacter(id, characterData) {
-    const { body } = await (await request.put(`${URL}/characters/${id}`)).setEncoding(characterData);
+    const { body } = await request.put(`${URL}/characters/${id}`).send(characterData);
 
     return body;
 }
 
-export async function createCharacter() {
-    const { body } = await (await request.post(`${URL}/characters/`).send(characterData);
+export async function createCharacter(characterData) {
+    const { body } = await request.post(`${URL}/characters/`).send(characterData);
 
     return body;
 }
@@ -32,7 +32,7 @@ export async function getAllCategories() {
     return body;
 }
 
-export async function deleteCharacter() {
+export async function deleteCharacter(id) {
     const { body } = await request.delete(`${URL}/characters/${id}`);
 
     return body;
