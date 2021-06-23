@@ -1,0 +1,8 @@
+.header-div {
+  background-color: rgba(137, 43, 226, 0.61);
+  color: rgba(178, 197, 214, 0.712);
+  text-shadow: 3px 5px rgba(79, 212, 212, 0.507);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
