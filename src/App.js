@@ -1,46 +1,36 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams
-} from "react-router-dom";
+import { BrowserRouter, Switch, Route, Router } from "react-router-dom";
 import './App.css';
 import ListPage from './ListPage';
 import CreatePage from './CreatePage';
 import DetailPage from './DetailPage';
+import Header from './Header';
+import HomePage from "./HomePage";
 
-function App() {
-  return (
-    <Router>
+export default class App extends Component {
+  render() {
+  return(
       <div>
-        <div className="header-div">
-        <h2>The Worst Page in the History of Pages</h2>
-        <p>
-          <Link to="/">
-            Home
-          </Link>
-        </p>
-        <p>
-          <Link to="/create">
-            Add a Character
-          </Link>
-          </p></div>
-        
+      <BrowserRouter>
+        <Header />
         <Switch>
+          <Route path='/' exact render={(routerProps) => <HomePage {...routerProps} />}
+            />
           <Route path="/characters/:id" exact render={(routerProps) => <DetailPage {...routerProps} />}
           />
           <Route
-            path="/creat"
+            path="/create"
             exact render={(routerProps) =>
-            <CreatePage {...routerProps} />
-            }
+            <CreatePage {...routerProps} />}
+          />
+            <Route
+            path="/listpage"
+            exact render={(routerProps) =>
+            <ListPage {...routerProps} />}
           />
         </Switch>
-      </div>
-    </Router>
+      </BrowserRouter>
+    </div>
   );
+  }
 }
-
-export default App;
