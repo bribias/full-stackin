@@ -1,20 +1,30 @@
 import React, { Component } from "react";
-import { BrowserRouter, Switch, Route, Router } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
 import './App.css';
 import ListPage from './ListPage';
 import CreatePage from './CreatePage';
 import DetailPage from './DetailPage';
-import Header from './Header';
 
 export default class App extends Component {
   render() {
   return(
+    <Router>
       <div>
-      <BrowserRouter>
-        <Header />
+        <h2>The Worst Page in the History of Pages</h2>
+        <p><Link to="/">Home</Link></p>
+        <p><Link to="/create">Add a Character</Link></p>
         <Switch>
-          <Route path='/' exact render={(routerProps) => <ListPage {...routerProps} />}
-            />
+          <Route
+            path="/"
+            exact render={(routerProps) =>
+            <ListPage {...routerProps} />}
+          />
           <Route path="/characters/:id" exact render={(routerProps) => <DetailPage {...routerProps} />}
           />
           <Route
@@ -22,9 +32,11 @@ export default class App extends Component {
             exact render={(routerProps) =>
             <CreatePage {...routerProps} />}
           />
+
         </Switch>
-      </BrowserRouter>
-    </div>
+      </div>
+    </Router>
+
   );
   }
 }
