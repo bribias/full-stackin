@@ -5,7 +5,6 @@ import ListPage from './ListPage';
 import CreatePage from './CreatePage';
 import DetailPage from './DetailPage';
 import Header from './Header';
-import HomePage from "./HomePage";
 
 export default class App extends Component {
   render() {
@@ -14,7 +13,7 @@ export default class App extends Component {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route path='/' exact render={(routerProps) => <HomePage {...routerProps} />}
+          <Route path='/' exact render={(routerProps) => <ListPage {...routerProps} />}
             />
           <Route path="/characters/:id" exact render={(routerProps) => <DetailPage {...routerProps} />}
           />
@@ -22,11 +21,6 @@ export default class App extends Component {
             path="/create"
             exact render={(routerProps) =>
             <CreatePage {...routerProps} />}
-          />
-            <Route
-            path="/listpage"
-            exact render={(routerProps) =>
-            <ListPage {...routerProps} />}
           />
         </Switch>
       </BrowserRouter>
